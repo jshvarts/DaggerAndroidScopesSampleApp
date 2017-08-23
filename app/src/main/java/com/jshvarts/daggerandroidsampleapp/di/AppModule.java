@@ -1,29 +1,12 @@
 package com.jshvarts.daggerandroidsampleapp.di;
 
-import android.content.Context;
-
-import com.jshvarts.daggerandroidsampleapp.App;
-import com.jshvarts.daggerandroidsampleapp.common.CommonHelloService;
-
-import javax.inject.Singleton;
-
 import dagger.Module;
-import dagger.Provides;
+import dagger.android.AndroidInjectionModule;
 
 /**
  * This is where you will inject application-wide dependencies.
  */
-@Module
-public class AppModule {
-
-    @Provides
-    Context provideContext(App application) {
-        return application.getApplicationContext();
-    }
-
-    @Singleton
-    @Provides
-    CommonHelloService provideCommonHelloService() {
-        return new CommonHelloService();
-    }
+/* Use AndroidSupportInjectionModule.class if you're using support library */
+@Module(includes = AndroidInjectionModule.class)
+abstract class AppModule {
 }
