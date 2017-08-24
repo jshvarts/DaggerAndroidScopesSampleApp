@@ -22,7 +22,7 @@ public abstract class BaseActivity extends Activity implements HasFragmentInject
     protected FragmentManager fragmentManager;
 
     @Inject
-    DispatchingAndroidInjector<Fragment> fragmentInjector;
+    DispatchingAndroidInjector<Fragment> fragmentInjecto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
