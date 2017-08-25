@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 
+import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -16,9 +18,12 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasFragmentInjector;
 
 public abstract class BaseActivity extends Activity implements HasFragmentInjector {
+    /**
+     * The @Named is necessary here to avoid conflicts between the activity's
+     * FragmentManager and the fragment's child FragmentManager
+     */
     @Inject
-    @Named("ACTIVITY_FRAGMENT_MANAGER")
-    //@Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
+    @Named(BaseActivityModule.ACTIVITY_FRAGMENT_MANAGER)
     protected FragmentManager fragmentManager;
 
     @Inject
