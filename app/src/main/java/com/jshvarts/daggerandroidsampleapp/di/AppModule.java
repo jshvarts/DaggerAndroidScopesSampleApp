@@ -2,6 +2,8 @@ package com.jshvarts.daggerandroidsampleapp.di;
 
 import android.app.Activity;
 
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.Example1Activity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.Example1ActivitySubcomponent;
 import com.jshvarts.daggerandroidsampleapp.ui.main.MainActivity;
 import com.jshvarts.daggerandroidsampleapp.ui.main.MainActivitySubcomponent;
 
@@ -17,7 +19,10 @@ import dagger.multibindings.IntoMap;
  */
 /* Use AndroidSupportInjectionModule.class if you're using support library */
 @Module(includes = AndroidInjectionModule.class,
-        subcomponents = MainActivitySubcomponent.class)
+        subcomponents = {
+                MainActivitySubcomponent.class,
+                Example1ActivitySubcomponent.class
+        })
 abstract class AppModule {
     // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
     @Binds
@@ -25,4 +30,11 @@ abstract class AppModule {
     @ActivityKey(MainActivity.class)
     abstract AndroidInjector.Factory<? extends Activity>
     mainActivityInjectorFactory(MainActivitySubcomponent.Builder builder);
+
+    // TODO (ContributesAndroidInjector) remove this in favor of @ContributesAndroidInjector
+    @Binds
+    @IntoMap
+    @ActivityKey(Example1Activity.class)
+    abstract AndroidInjector.Factory<? extends Activity>
+    example1ActivityInjectorFactory(Example1ActivitySubcomponent.Builder builder);
 }

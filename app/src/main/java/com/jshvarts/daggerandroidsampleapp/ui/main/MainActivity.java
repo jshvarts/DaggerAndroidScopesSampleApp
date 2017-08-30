@@ -1,11 +1,13 @@
 package com.jshvarts.daggerandroidsampleapp.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.jshvarts.daggerandroidsampleapp.R;
 import com.jshvarts.daggerandroidsampleapp.ui.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.Example1Activity;
 
 public class MainActivity extends BaseActivity implements MainFragmentListener {
 
@@ -21,8 +23,8 @@ public class MainActivity extends BaseActivity implements MainFragmentListener {
 
     @Override
     public void onExample1Clicked() {
-        // TODO start example 1 activity
-        Toast.makeText(this, "Launch example 1", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, Example1Activity.class);
+        startActivity(intent);
     }
 
     @Override
