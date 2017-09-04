@@ -1,6 +1,6 @@
 # DaggerAndroidScopesSampleApp
 
-[![Build Status](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp.svg?branch=master)](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp)
+[![Build Status](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp.svg?branch=replace-Subcomponents-with-ContributesAndroidInjector)](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp)
 
 Dagger 2.11 setup with dagger-android module demonstrating using scopes (`@Singleton`, `@PerActivity`, `@PerFragment` and `@PerChildFragment`) with `@ContributesAndroidInjector` which is different from master branch.
 
