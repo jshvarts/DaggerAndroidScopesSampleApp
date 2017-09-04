@@ -5,13 +5,17 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.Nullable;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseFragmentModule;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
@@ -28,6 +32,9 @@ public class BaseFragment extends Fragment implements HasFragmentInjector {
 
     @Inject
     DispatchingAndroidInjector<Fragment> childFragmentInjector;
+
+    @Nullable
+    private Unbinder viewUnbinder;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -47,6 +54,48 @@ public class BaseFragment extends Fragment implements HasFragmentInjector {
             AndroidInjection.inject(this);
         }
         super.onAttach(context);
+    }
+
+    /**
+     * The onViewStateRestored(Bundle) lifecycle method is only available beginning with API level 17.
+     * Supporting API levels below 17 down to 14 requires the use of AppCompatActivity, support Fragment,
+     * and dagger.android.support APIs.
+     * @param savedInstanceState
+     */
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        // Null check on getView() is not needed since onViewStateRestored() only gets called
+        // when the View returned in onCreateView() is not null.
+
+        /*
+         * Bind the views here instead of in onViewCreated so that view state changed listeners
+         * are not invoked automatically without user interaction.
+         *
+         * If we bind before this method (e.g. onViewCreated), then any checked changed
+         * listeners bound by ButterKnife will be invoked during fragment recreation (since
+         * Android itself saves and restores the views' states.
+         *
+         * The lifecycle order is as follows (same if added via xml or java or if retain
+         * instance is true):
+         *
+         * onAttach
+         * onCreateView
+         * onViewCreated
+         * onActivityCreated
+         * onViewStateRestored
+         * onResume
+         */
+        viewUnbinder = ButterKnife.bind(this, getView());
+    }
+
+    @Override
+    public void onDestroyView() {
+        // This lifecycle method still gets called even if onCreateView returns a null view.
+R        if (viewUnbinder != null) {
+            viewUnbinder.unbind();
+        }
+        super.onDestroyView();
     }
 
     @Override

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp.svg?branch=master)](https://travis-ci.org/jshvarts/DaggerAndroidScopesSampleApp)
 
-Dagger 2.11 setup with dagger-android module demonstrating using custom scopes using `@ContributesAndroidInjector` which is different from master branch.
+Dagger 2.11 setup with dagger-android module demonstrating using scopes (`@Singleton`, `@PerActivity`, `@PerFragment` and `@PerChildFragment`) with `@ContributesAndroidInjector` which is different from master branch.
 
 ## @ContributesAndroidInjector
 Dagger 2.11 has provided us with the `@ContributesAndroidInjector` so that we can delete all subcomponent classes.
