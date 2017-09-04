@@ -92,7 +92,7 @@ public class BaseFragment extends Fragment implements HasFragmentInjector {
     @Override
     public void onDestroyView() {
         // This lifecycle method still gets called even if onCreateView returns a null view.
-R        if (viewUnbinder != null) {
+        if (viewUnbinder != null) {
             viewUnbinder.unbind();
         }
         super.onDestroyView();
