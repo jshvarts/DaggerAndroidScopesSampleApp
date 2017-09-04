@@ -4,7 +4,23 @@
 
 Dagger 2.11 setup with dagger-android module demonstrating using custom scopes.
 
-Note: see branch https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector to learn how `@Subcomponent`s are replaced with `@ContributesAndroidInjector`
+## Branches
 
-Note: see branch https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/use-support-library to learn how to use Support library to extend support from API 17 to 14.
+1. **master**
 
+Uses regular Activity and Fragment classes with a minSdkVersion of 17. 
+
+2. **replace-Subcomponents-with-ContributesAndroidInjector**
+
+Replaces `@Subcomponent` with `@ContributesAndroidInjector`, new in Dagger 2.11
+
+https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector
+
+3. **use-support-library**
+
+Extends Support library to extend support from API 17 to 14.
+
+https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/use-support-library
+
+
+*Note: This project is based on the excellent sample project https://github.com/vestrel00/android-dagger-butterknife-mvp*
