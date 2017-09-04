@@ -16,7 +16,7 @@ import dagger.Module;
 @Module(includes = {
         BaseChildFragmentModule.class,
 })
-abstract class Example3ChildFragmentModule {
+public abstract class Example3ChildFragmentModule {
     /**
      * As per the contract specified in {@link BaseChildFragmentModule}; "This must be included in
      * all child fragment modules, which must provide a concrete implementation of the child

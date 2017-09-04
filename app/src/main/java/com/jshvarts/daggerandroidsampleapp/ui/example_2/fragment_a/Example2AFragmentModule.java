@@ -4,7 +4,6 @@ import android.app.Fragment;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseFragmentModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_a.Example2AFragment;
 
 import javax.inject.Named;
 
@@ -15,7 +14,7 @@ import dagger.Module;
         BaseFragmentModule.class,
 })
 
-abstract class Example2AFragmentModule {
+public abstract class Example2AFragmentModule {
 
     /**
      * As per the contract specified in {@link BaseFragmentModule}; "This must be included in all
