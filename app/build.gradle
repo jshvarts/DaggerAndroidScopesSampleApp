@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 project.ext {
     daggerVersion = "2.11"
-    butterKnifeVersion = "8.5.1"
+    butterKnifeVersion = "8.7.0"
 }
 
 android {

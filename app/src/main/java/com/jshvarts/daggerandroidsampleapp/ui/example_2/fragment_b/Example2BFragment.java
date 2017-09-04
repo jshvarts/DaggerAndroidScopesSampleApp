@@ -15,7 +15,10 @@ import com.jshvarts.daggerandroidsampleapp.util.SingletonUtil;
 
 import javax.inject.Inject;
 
-public class Example2BFragment extends BaseFragment implements View.OnClickListener {
+import butterknife.BindView;
+import butterknife.OnClick;
+
+public class Example2BFragment extends BaseFragment {
 
     @Inject
     SingletonUtil singletonUtil;
@@ -26,7 +29,8 @@ public class Example2BFragment extends BaseFragment implements View.OnClickListe
     @Inject
     PerFragmentUtil perFragmentUtil;
 
-    private TextView someText;
+    @BindView(R.id.some_text)
+    TextView someText;
 
     @Nullable
     @Override
@@ -34,27 +38,8 @@ public class Example2BFragment extends BaseFragment implements View.OnClickListe
         return inflater.inflate(R.layout.example_2_fragment_b, container, false);
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        // TODO (Butterknife) replace with butterknife view binding
-        someText = (TextView) view.findViewById(R.id.some_text);
-        view.findViewById(R.id.do_something).setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.do_something:
-                onDoSomethingClicked();
-                break;
-            default:
-                throw new IllegalArgumentException("Unhandled view " + v.getId());
-        }
-    }
-
-    private void onDoSomethingClicked() {
+    @OnClick(R.id.do_something)
+    void onDoSomethingClicked() {
         String something = singletonUtil.doSomething();
         something += "\n" + perActivityUtil.doSomething();
         something += "\n" + perFragmentUtil.doSomething();
