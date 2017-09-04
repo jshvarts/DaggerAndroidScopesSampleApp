@@ -4,7 +4,5 @@
 
 Dagger 2.11 setup with dagger-android module demonstrating using custom scopes.
 
-Note: see branch: https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector
-
-to learn how `@Subcomponent`s are replaced with `@ContributesAndroidInjector`
+Note: see branch https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector to learn how `@Subcomponent`s are replaced with `@ContributesAndroidInjector`
 
