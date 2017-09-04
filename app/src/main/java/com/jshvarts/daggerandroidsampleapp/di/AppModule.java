@@ -12,12 +12,13 @@ import com.jshvarts.daggerandroidsampleapp.ui.main.MainActivityModule;
 import dagger.Module;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.ContributesAndroidInjector;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 /**
  * This is where you will inject application-wide dependencies.
  */
-/* Use AndroidSupportInjectionModule.class if you're using support library */
-@Module(includes = AndroidInjectionModule.class)
+/* AndroidSupportInjectionModule includes AndroidInjectionModule implicitly. */
+@Module(includes = AndroidSupportInjectionModule.class)
 abstract class AppModule {
 
     /**

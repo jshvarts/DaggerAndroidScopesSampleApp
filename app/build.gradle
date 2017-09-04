@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 
 project.ext {
     daggerVersion = "2.11"
-    butterKnifeVersion = "8.5.1"
+    butterKnifeVersion = "8.7.0"
+    supportVersion = "26.0.1"
 }
 
 android {
@@ -10,10 +11,18 @@ android {
     buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.jshvarts.daggerandroidsampleapp"
-        minSdkVersion 17
+
+        // The minSdkVersion of 17 is the lowest version that our non-support setup in master supports
+        // due to Fragment.getChildFragmentManager() and Fragment.onViewStateRestored only
+        // being available starting at API level 17.
+
+        // The minSdkVersion 14 is the lowest version that dagger.android.support API supports.
+        // See https://github.com/google/dagger/blob/master/java/dagger/android/support/AndroidManifest.xml#L18
+        minSdkVersion 14
         targetSdkVersion 26
+
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -27,11 +36,11 @@ android {
 dependencies {
     annotationProcessor "com.google.dagger:dagger-compiler:$project.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$project.daggerVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"
 
     compile "com.google.dagger:dagger:$project.daggerVersion"
     compile "com.google.dagger:dagger-android:$project.daggerVersion"
-
-    // ButterKnife
+    compile "com.google.dagger:dagger-android-support:$project.daggerVersion"
     compile "com.jakewharton:butterknife:$project.butterKnifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$project.butterKnifeVersion"
+    compile "com.android.support:appcompat-v7:$project.supportVersion"
 }

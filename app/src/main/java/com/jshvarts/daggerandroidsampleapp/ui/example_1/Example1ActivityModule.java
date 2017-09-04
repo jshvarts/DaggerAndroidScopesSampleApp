@@ -1,6 +1,6 @@
 package com.jshvarts.daggerandroidsampleapp.ui.example_1;
 
-import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
@@ -26,7 +26,7 @@ public abstract class Example1ActivityModule {
 
     /**
      * As per the contract specified in {@link BaseActivityModule}; "This must be included in all
-     * activity modules, which must rovide a concrete implementation of {@link Activity}."
+     * activity modules, which must provide a concrete implementation of {@link AppCompatActivity}."
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the
@@ -37,5 +37,5 @@ public abstract class Example1ActivityModule {
      */
     @Binds
     @PerActivity
-    abstract Activity activity(Example1Activity example1Activity);
+    abstract AppCompatActivity appCompatActivity(Example1Activity example1Activity);
 }

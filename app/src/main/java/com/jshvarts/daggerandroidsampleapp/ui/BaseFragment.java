@@ -1,13 +1,11 @@
 package com.jshvarts.daggerandroidsampleapp.ui;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseFragmentModule;
 
@@ -16,12 +14,13 @@ import javax.inject.Named;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import dagger.android.AndroidInjection;
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasFragmentInjector;
+import dagger.android.support.AndroidSupportInjection;
+import dagger.android.support.HasSupportFragmentInjector;
 
-public class BaseFragment extends Fragment implements HasFragmentInjector {
+public class BaseFragment extends Fragment implements HasSupportFragmentInjector {
+
     @Inject
     protected Context activityContext;
 
@@ -36,23 +35,10 @@ public class BaseFragment extends Fragment implements HasFragmentInjector {
     @Nullable
     private Unbinder viewUnbinder;
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onAttach(Activity activity) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // Perform injection here before M, L (API 22) and below because onAttach(Context)
-            // is not yet available at L.
-            AndroidInjection.inject(this);
-        }
-        super.onAttach(activity);
-    }
-
     @Override
     public void onAttach(Context context) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // Perform injection here for M (API 23) due to deprecation of onAttach(Activity).
-            AndroidInjection.inject(this);
-        }
+        // This is called even for API levels below 23.
+        AndroidSupportInjection.inject(this);
         super.onAttach(context);
     }
 
@@ -99,7 +85,7 @@ public class BaseFragment extends Fragment implements HasFragmentInjector {
     }
 
     @Override
-    public final AndroidInjector<Fragment> fragmentInjector() {
+    public final AndroidInjector<Fragment> supportFragmentInjector() {
         return childFragmentInjector;
     }
 

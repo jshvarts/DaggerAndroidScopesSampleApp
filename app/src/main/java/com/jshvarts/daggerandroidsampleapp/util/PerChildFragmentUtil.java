@@ -1,6 +1,6 @@
 package com.jshvarts.daggerandroidsampleapp.util;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseChildFragmentModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerChildFragment;
