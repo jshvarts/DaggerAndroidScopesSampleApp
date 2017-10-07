@@ -5,6 +5,10 @@ import android.app.Activity;
 import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.main.view.MainFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.main.view.MainFragmentListener;
+import com.jshvarts.daggerandroidsampleapp.ui.main.view.MainFragmentModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -30,7 +34,7 @@ public abstract class MainActivityModule {
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the
-     * {@link com.jshvarts.daggerandroidsampleapp.ui.BaseActivity}.
+     * {@link BaseActivity}.
      *
      * @param mainActivity the activity
      * @return the activity

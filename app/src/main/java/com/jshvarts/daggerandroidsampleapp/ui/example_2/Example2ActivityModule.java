@@ -5,10 +5,11 @@ import android.app.Activity;
 import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_a.Example2AFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_a.Example2AFragmentModule;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_b.Example2BFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_b.Example2BFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_a.view.Example2AFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_a.view.Example2AFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_b.view.Example2BFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.example_2.fragment_b.view.Example2BFragmentModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -42,7 +43,7 @@ public abstract class Example2ActivityModule {
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the
-     * {@link com.jshvarts.daggerandroidsampleapp.ui.BaseActivity}.
+     * {@link BaseActivity}.
      *
      * @param example2Activity the example 2 activity
      * @return the activity

@@ -5,8 +5,9 @@ import android.app.Activity;
 import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.Example3ParentFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.Example3ParentFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.view.Example3ParentFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.view.Example3ParentFragmentModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -32,7 +33,7 @@ public abstract class Example3ActivityModule {
      * <p>
      * This provides the activity required to inject the
      * {@link BaseActivityModule#ACTIVITY_FRAGMENT_MANAGER} into the
-     * {@link com.jshvarts.daggerandroidsampleapp.ui.BaseActivity}.
+     * {@link BaseActivity}.
      *
      * @param example3Activity the example 3 activity
      * @return the activity

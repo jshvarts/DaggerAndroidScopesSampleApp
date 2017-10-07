@@ -1,9 +1,11 @@
-package com.jshvarts.daggerandroidsampleapp.ui.example_1;
+package com.jshvarts.daggerandroidsampleapp.ui.example_1.fragment.view;
 
 import android.app.Fragment;
 
-import com.jshvarts.daggerandroidsampleapp.di.BaseFragmentModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.common.view.BaseFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.fragment.presenter.Example1PresenterModule;
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.fragment.view.Example1Fragment;
 
 import javax.inject.Named;
 
@@ -15,6 +17,7 @@ import dagger.Module;
  */
 @Module(includes = {
         BaseFragmentModule.class,
+        Example1PresenterModule.class
 })
 public abstract class Example1FragmentModule {
 
@@ -30,4 +33,8 @@ public abstract class Example1FragmentModule {
     @Named(BaseFragmentModule.FRAGMENT)
     @PerFragment
     abstract Fragment fragment(Example1Fragment example1Fragment);
+
+    @Binds
+    @PerFragment
+    abstract Example1View example1View(Example1Fragment example1Fragment);
 }

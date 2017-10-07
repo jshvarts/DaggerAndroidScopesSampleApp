@@ -1,14 +1,12 @@
 package com.jshvarts.daggerandroidsampleapp.ui.main;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jshvarts.daggerandroidsampleapp.R;
-import com.jshvarts.daggerandroidsampleapp.ui.BaseActivity;
-import com.jshvarts.daggerandroidsampleapp.ui.example_1.Example1Activity;
-import com.jshvarts.daggerandroidsampleapp.ui.example_2.Example2Activity;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.Example3Activity;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.main.view.MainFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.main.view.MainFragmentListener;
 
 public class MainActivity extends BaseActivity implements MainFragmentListener {
 
@@ -24,19 +22,16 @@ public class MainActivity extends BaseActivity implements MainFragmentListener {
 
     @Override
     public void onExample1Clicked() {
-        Intent intent = new Intent(this, Example1Activity.class);
-        startActivity(intent);
+        navigator.toExample1(this);
     }
 
     @Override
     public void onExample2Clicked() {
-        Intent intent = new Intent(this, Example2Activity.class);
-        startActivity(intent);
+        navigator.toExample2(this);
     }
 
     @Override
     public void onExample3Clicked() {
-        Intent intent = new Intent(this, Example3Activity.class);
-        startActivity(intent);
+        navigator.toExample3(this);
     }
 }

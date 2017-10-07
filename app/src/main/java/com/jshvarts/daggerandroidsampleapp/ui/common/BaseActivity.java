@@ -1,4 +1,4 @@
-package com.jshvarts.daggerandroidsampleapp.ui;
+package com.jshvarts.daggerandroidsampleapp.ui.common;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -8,6 +8,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 
 import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
+import com.jshvarts.daggerandroidsampleapp.navigation.Navigator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,6 +19,9 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasFragmentInjector;
 
 public abstract class BaseActivity extends Activity implements HasFragmentInjector {
+    @Inject
+    protected Navigator navigator;
+
     /**
      * The @Named is necessary here to avoid conflicts between the activity's
      * FragmentManager and the fragment's child FragmentManager

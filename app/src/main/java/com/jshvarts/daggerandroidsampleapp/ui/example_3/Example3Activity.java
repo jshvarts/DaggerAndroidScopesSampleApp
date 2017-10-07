@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jshvarts.daggerandroidsampleapp.R;
-import com.jshvarts.daggerandroidsampleapp.ui.BaseActivity;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.Example3ParentFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.view.Example3ParentFragment;
 
 /**
  * Activity that contains a single fragment that contains a child fragment.

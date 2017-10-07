@@ -1,12 +1,13 @@
-package com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment;
+package com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.view;
 
 import android.app.Fragment;
 
-import com.jshvarts.daggerandroidsampleapp.di.BaseFragmentModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerChildFragment;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.child_fragment.Example3ChildFragment;
-import com.jshvarts.daggerandroidsampleapp.ui.example_3.child_fragment.Example3ChildFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.common.view.BaseFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.child_fragment.view.Example3ChildFragment;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.child_fragment.view.Example3ChildFragmentModule;
+import com.jshvarts.daggerandroidsampleapp.ui.example_3.parent_fragment.presenter.Example3ParentPresenterModule;
 
 import javax.inject.Named;
 
@@ -17,7 +18,10 @@ import dagger.android.ContributesAndroidInjector;
 /**
  * Provides example 3 parent fragment dependencies.
  */
-@Module(includes = BaseFragmentModule.class)
+@Module(includes = {
+        BaseFragmentModule.class,
+        Example3ParentPresenterModule.class
+})
 public abstract class Example3ParentFragmentModule {
 
     /**
@@ -41,4 +45,8 @@ public abstract class Example3ParentFragmentModule {
     @Named(BaseFragmentModule.FRAGMENT)
     @PerFragment
     abstract Fragment fragment(Example3ParentFragment example3ParentFragment);
+
+    @Binds
+    @PerFragment
+    abstract Example3ParentView example3ParentView(Example3ParentFragment example3ParentFragment);
 }

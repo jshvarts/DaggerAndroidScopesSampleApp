@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.jshvarts.daggerandroidsampleapp.R;
-import com.jshvarts.daggerandroidsampleapp.ui.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;
+import com.jshvarts.daggerandroidsampleapp.ui.example_1.fragment.view.Example1Fragment;
 
 public final class Example1Activity extends BaseActivity {
 
