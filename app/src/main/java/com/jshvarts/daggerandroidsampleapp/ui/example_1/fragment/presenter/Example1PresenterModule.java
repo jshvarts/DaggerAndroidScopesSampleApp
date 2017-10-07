@@ -10,6 +10,7 @@ import dagger.Module;
  */
 @Module
 public abstract class Example1PresenterModule {
+    // We are using @Binds annotation to provide an interface with an instance of a concrete class.
     @Binds
     @PerFragment
     abstract Example1Presenter example1Presenter(Example1PresenterImpl example1PresenterImpl);
