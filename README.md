@@ -4,6 +4,8 @@
 
 Dagger 2.11 setup with **dagger-android** module demonstrating using custom scopes with ButterKnife.
 
+This project is based on the excellent sample project https://github.com/vestrel00/android-dagger-butterknife-mvp
+
 ## Branches
 
 1. **master**
@@ -19,4 +21,7 @@ Based on master. Replaces `@Subcomponent`s with `@ContributesAndroidInjector`, n
 Based on [replace-Subcomponents-with-ContributesAndroidInjector](https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector). Uses Android Support library to extend support from API 17 to 14.
 
 
-*Note: This project is based on the excellent sample project https://github.com/vestrel00/android-dagger-butterknife-mvp*
+4. **[mvp](https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/mvp)**
+
+Based on [replace-Subcomponents-with-ContributesAndroidInjector](https://github.com/jshvarts/DaggerAndroidScopesSampleApp/tree/replace-Subcomponents-with-ContributesAndroidInjector). Implements MVP pattern.
+
