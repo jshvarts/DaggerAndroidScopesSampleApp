@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 
-import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.navigation.Navigator;
 
 import javax.inject.Inject;

@@ -2,7 +2,7 @@ package com.jshvarts.daggerandroidsampleapp.ui.main;
 
 import android.app.Activity;
 
-import com.jshvarts.daggerandroidsampleapp.di.BaseActivityModule;
+import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivityModule;
 import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
 import com.jshvarts.daggerandroidsampleapp.di.PerFragment;
 import com.jshvarts.daggerandroidsampleapp.ui.common.BaseActivity;

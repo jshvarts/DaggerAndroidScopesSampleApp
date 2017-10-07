@@ -1,8 +1,10 @@
-package com.jshvarts.daggerandroidsampleapp.di;
+package com.jshvarts.daggerandroidsampleapp.ui.common;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
+
+import com.jshvarts.daggerandroidsampleapp.di.PerActivity;
 
 import javax.inject.Named;
 
